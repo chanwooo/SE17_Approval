@@ -1,6 +1,6 @@
 <?php
 
-
+require_once "dbconn.php";
 
 
 function writeDoc($id, $text)
@@ -50,13 +50,13 @@ function OtpUserCheck($id)
         return false;
 }
 
-function Login($id, $passwd)
+function login($id, $pw)
 {
     $conn = dbConnect();
     $result = 0;
-    if($stmt = mysqli_prepare($conn, "select count(*) from user where id=? and passwd=?"))
+    if($stmt = mysqli_prepare($conn, "select count(*) from users where id=? and pw=?"))
     {
-        mysqli_stmt_bind_param($stmt, "ss", $id, $passwd);
+        mysqli_stmt_bind_param($stmt, "ss", $id, $pw);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $result);
         mysqli_stmt_fetch($stmt);
