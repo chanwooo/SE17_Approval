@@ -6,7 +6,7 @@
     <meta name="Author" content="">
     <meta name="Keywords" content="">
     <meta name="Description" content="">
-    <title>Document</title>
+    <title>se17</title>
 </head>
 <body>
 
@@ -17,7 +17,7 @@ include 'header.php';
 
 <form method="post" action="newApproval.php">
 
-    <table border=1 cellpadding="4" cellspacing="0" bgcolor="white" bordercolor="gray" style="margin:0 auto;" >
+    <table class="unstriped" border=1 cellpadding="4" cellspacing="0" bgcolor="white" bordercolor="gray" style="margin:0 auto;" >
 
         <tr>
 
@@ -27,17 +27,31 @@ include 'header.php';
 
         <tr>
 
-            <td>작성자 </td><td> <?= $userid ?> </td>
+            <td>작성자 </td><td> <?=$userinfo[rank]?> <?=$userinfo[name] ?> </td>
 
         </tr>
 
 
         <tr>
 
-            <td>수신인 </td><td><?php
+            <td>수신인 </td><td>
+
+                <?php
+
+
+                $query1="select rank, name, id from users where id in (SELECT manager FROM managers where userid='$userid' )";
+                $result=mysqli_query($connect,$query1);
+                //var_dump($result);
+
+                while($managers=mysqli_fetch_array($result)) {
+                    //var_dump($managers);
+
+                    echo "<input type='checkbox' name='manager[]' value=". $managers[id] ." >";
+                    echo $managers[rank] . " " . $managers[name] . "<br>";
+
+                }
                 ?>
 
-                <input type="checkbox" name="userid[]" value="user1" >user1
 
             </td>
 
@@ -51,7 +65,7 @@ include 'header.php';
 
         <tr>
 
-            <td></td><td><input type="submit" value="작성"></td>
+            <td></td><td><input class="button" type="submit" value="작성하기"></td>
 
         </tr>
 
@@ -61,13 +75,13 @@ include 'header.php';
 
 
 
-<h3>
+<!--h3>
     ::todo::<br>
 
     수신인 목록 가져오기(managers table)<br>
     progress table에 수신자 목록과 함께 insert<br>
 
-</h3>
+</h3-->
 
 </body>
 </html>
