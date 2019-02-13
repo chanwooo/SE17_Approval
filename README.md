@@ -1,12 +1,9 @@
 # SE17_Approval
 소프트웨어공학 프로젝트과제 전자결재
+김찬우 이정우 임진수 이유림
 
 ### Demo
 https://chanwookim.me/SE17_Approval
-
-김찬우 이정우 임진수 이유림
-
-
 
 ### index.php
 login
