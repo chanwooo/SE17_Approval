@@ -1,20 +1,26 @@
 # SE17_Approval
 소프트웨어공학 프로젝트과제 전자결재
 
+### Demo
+https://chanwookim.me/SE17_Approval
+
 김찬우 이정우 임진수 이유림
 
 
 
-### index.html 
-main page
+### index.php
+login
+
+### main.php
+로그인 후 메인 페이지
 
 ### newApproval.php
 새 결재 문서 작성
 
-### viewProgress.php
-내가 작성한 문서의 진행상황 확인
+### send.php
+보낸 문서목록, 진행상황
 
-### docList.php
-결재 문서 목록
+### recv.php
+받은 문서 목록, 진행상황
 
-https://chanwookim.me/SE17_Approval
+
