@@ -1,0 +1,29 @@
+<?php
+$conn;
+$servername = "localhost";
+$database = "se17";
+$user = "db_account";
+$pwd = "db_password";
+
+function dbConnect()
+{
+    global $conn;
+    global $servername;
+    global $user;
+    global $pwd;
+    global $database;
+    $conn = mysqli_connect($servername, $user, $pwd, $database);
+    if(!$conn)
+    {
+        die("connect error");
+    }
+    //echo "connect success";
+    return $conn;
+}
+
+function dbClose()
+{
+    global $conn;
+    mysqli_close($conn);
+}
+?>
